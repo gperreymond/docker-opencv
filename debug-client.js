@@ -3,7 +3,7 @@
 // client configuration
 const Client = require('node-cqrs-framework').Client
 const client = new Client({
-  host: 'localhost',
+  host: '172.20.0.6',
   port: 5672,
   user: 'guest',
   pass: 'guest'

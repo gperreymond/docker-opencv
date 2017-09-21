@@ -3,18 +3,9 @@ version: "3.3"
 services:
 
   opencv:
-    image: gperreymond/opencv:3.3.0
+    image: abibao/opencv3-alpine
     volumes:
       - ./volumes/resources:/python/resources:ro
       - ./volumes/computes:/python/computes
       - ./volumes/python:/python/scripts:ro
     command: "tail -f /python/computes/README.md"
-
-  rabbitmq:
-    image: rabbitmq:3.6-management-alpine
-    ports:
-      - 5672:5672
-      - 15672:15672
-    environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
