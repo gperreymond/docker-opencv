@@ -2,6 +2,7 @@ version: 2
 jobs:
   build:
     docker:
+      - image: docker:17.05.0-ce-git
       - image: library/node:6-alpine
       - image: rabbitmq:3.6-management-alpine
     working_directory: ~/repo
