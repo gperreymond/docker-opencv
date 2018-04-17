@@ -6,10 +6,10 @@ const path = require('path')
 const Server = require('node-cqrs-framework').Server
 const server = new Server({
   bus: {
-    host: '172.20.0.6',
+    host: '172.18.0.5',
     port: 5672,
-    user: 'guest',
-    pass: 'guest'
+    user: 'infra',
+    pass: 'infra'
   },
   source: path.resolve(__dirname, '..'),
   patterns: [
@@ -20,6 +20,7 @@ const server = new Server({
 // server handlers
 const readyHandler = () => {
   console.log('server is ready!')
+  server.client.publish('ComputeAKazeCommand', {})
 }
 const errorHandler = (error) => {
   console.log(error)

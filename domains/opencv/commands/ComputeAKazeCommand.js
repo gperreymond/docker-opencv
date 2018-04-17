@@ -4,7 +4,7 @@ const Promise = require('bluebird')
 
 const handler = function () {
   return new Promise((resolve, reject) => {
-    resolve()
+    reject(new Error('no way dude!'))
   })
 }
 
