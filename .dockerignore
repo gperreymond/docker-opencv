@@ -1,5 +1,3 @@
-domains
-node_modules
-python
-test
+git
 volumes
+README.md
