@@ -1,5 +1,7 @@
 FROM python:3-alpine3.6
 
+ENV OPENCV_VERSION=3.4.0
+
 RUN echo -e '@edgunity http://nl.alpinelinux.org/alpine/edge/community\n\
     @edge http://nl.alpinelinux.org/alpine/edge/main\n\
     @testing http://nl.alpinelinux.org/alpine/edge/testing\n\
@@ -35,8 +37,6 @@ RUN apk add --update --no-cache \
 
 ENV CC /usr/bin/clang
 ENV CXX /usr/bin/clang++
-
-ENV OPENCV_VERSION=3.4.0
 
 RUN mkdir /opt && cd /opt && \
   wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip && \
