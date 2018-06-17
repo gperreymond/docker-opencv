@@ -1,10 +1,12 @@
-FROM python:3-alpine3.6
+FROM python:3.6.5-alpine3.7
 
-RUN echo -e '@edgunity http://nl.alpinelinux.org/alpine/edge/community\n\
-    @edge http://nl.alpinelinux.org/alpine/edge/main\n\
-    @testing http://nl.alpinelinux.org/alpine/edge/testing\n\
-    @community http://dl-cdn.alpinelinux.org/alpine/edge/community'\
-    >> /etc/apk/repositories
+RUN echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/main > /etc/apk/repositories; \
+    echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/community >> /etc/apk/repositories; \
+    echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories;
+
+RUN rm -rf /var/cache/apk/* && \
+    rm -rf /tmp/* && \
+    apk update
 
 RUN apk add --update --no-cache \
     # --virtual .build-deps \
